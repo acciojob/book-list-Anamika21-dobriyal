@@ -40,12 +40,16 @@
         //     }
         //   }
         // });
-		  bookList.addEventListener("click", (e) => {
+		bookList.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete")) {
         if (confirm("Are you sure you want to remove this book?")) {
             const row = e.target.parentElement.parentElement;
-            row.parentNode.removeChild(row);
+            if (row.parentNode) {
+                row.parentNode.removeChild(row);
+            } else {
+                console.log('Parent node is null');
+            }
         }
     }
-  });
+});
       });
